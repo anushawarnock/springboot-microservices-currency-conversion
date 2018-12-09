@@ -1,0 +1,18 @@
+spring.application.name: zuul-loadbalancer
+
+#zuul.routes.books.url=http://localhost:8090
+#ribbon.eureka.enabled=true
+server:
+  port: 8080
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+      
+zuul:
+  routes:
+    currency-converter:
+      path: /currency-converter/**
+      serviceId: currency-conversion-service
+      
